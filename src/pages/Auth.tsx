@@ -4,7 +4,6 @@ import { Gamepad2, Mail, Lock, User, Eye, EyeOff, ArrowLeft } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -48,15 +47,17 @@ const Auth = () => {
   };
 
   const handleGoogleLogin = async () => {
-    const { error } = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: window.location.origin },
     });
     if (error) toast.error("Google login error");
   };
 
   const handleAppleLogin = async () => {
-    const { error } = await lovable.auth.signInWithOAuth("apple", {
-      redirect_uri: window.location.origin,
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "apple",
+      options: { redirectTo: window.location.origin },
     });
     if (error) toast.error("Apple login error");
   };
