@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 66%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 22%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 263 70% 66%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 263 70% 66%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-ring: 263 70% 66%;
+
+    /* Custom tokens */
+    --gaming-green: 160 84% 39%;
+    --gaming-purple: 263 70% 66%;
+    --gaming-purple-glow: 263 70% 76%;
+    --gaming-surface: 217 33% 14%;
+    --gaming-surface-hover: 217 33% 19%;
+    --text-secondary: 215 20% 65%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 97%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 97%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 263 70% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 92%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 160 84% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 263 70% 56%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 263 70% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 87%;
+    --sidebar-ring: 263 70% 56%;
+
+    --gaming-green: 160 84% 35%;
+    --gaming-purple: 263 70% 56%;
+    --gaming-purple-glow: 263 70% 66%;
+    --gaming-surface: 220 14% 95%;
+    --gaming-surface-hover: 220 14% 90%;
+    --text-secondary: 215 16% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .glow-purple {
+    box-shadow: 0 0 20px hsl(var(--gaming-purple) / 0.3), 0 0 60px hsl(var(--gaming-purple) / 0.1);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px hsl(var(--gaming-green) / 0.3), 0 0 60px hsl(var(--gaming-green) / 0.1);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-purple-glow)));
+  }
+
+  .gradient-surface {
+    background: linear-gradient(180deg, hsl(var(--gaming-surface)), hsl(var(--card)));
+  }
+
+  .glass-panel {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .status-online {
+    color: hsl(var(--gaming-green));
+  }
+
+  .status-dot {
+    background: hsl(var(--gaming-green));
+    box-shadow: 0 0 8px hsl(var(--gaming-green) / 0.6);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--gaming-purple)), hsl(var(--gaming-purple-glow)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
