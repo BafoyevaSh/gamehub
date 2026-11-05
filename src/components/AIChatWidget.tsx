@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
+const CHAT_URL = "/api/ai-chat";
 
 const AIChatWidget = () => {
   const { t } = useLanguage();
@@ -40,7 +40,6 @@ const AIChatWidget = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
         body: JSON.stringify({ messages: allMessages.map(m => ({ role: m.role, content: m.content })) }),
       });
